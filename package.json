@@ -1,0 +1,33 @@
+{
+  "name": "yummy",
+  "version": "1.0.0",
+  "description": "API able to search for a recipe when given up to three different ingredients, with a gif attached to the response.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vitorfbs/yummy.git"
+  },
+  "keywords": [
+    "API",
+    "NodeJS",
+    "Recipes",
+    "Giphy",
+    "RecipePuppy"
+  ],
+  "author": "Vitor Ferreira Bem Silva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vitorfbs/yummy/issues"
+  },
+  "dependencies": {
+    "express": "~4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "~8.2.1"
+  }
+}

@@ -4,7 +4,6 @@
   "description": "API able to search for a recipe when given up to three different ingredients, with a gif attached to the response.",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./server.js",
     "dev": "NODE_ENV=development nodemon ./server.js",
     "test": "mocha"
   },
@@ -27,15 +26,16 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "~4.17.1",
     "http-status": "^1.5.0",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "dotenv": "^8.2.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",

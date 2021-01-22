@@ -1,8 +1,8 @@
 const handler = require('../handler/handler.js');
 const { getRecipePuppyRecipes } = require('../services/recipePuppyService.js');
 const { getRecipeGiphyURL } = require('../services/giphyService.js');
-const { TooManyIngredientsProvidedError } = require('../error/apiError.js');
-const { RecipePuppyEmptyRecipeListError } = require('../error/recipePuppyError.js');
+const { TooManyIngredientsProvidedError } = require('../error/recipe/tooManyIngredientsProvidedError.js');
+const { RecipePuppyEmptyRecipeListError } = require('../error/recipe_puppy/recipePuppyEmptyRecipeListError.js');
 
 async function getRecipes(request, response) {
   try {

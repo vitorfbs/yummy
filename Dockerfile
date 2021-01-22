@@ -16,4 +16,4 @@ EXPOSE 4567
 
 RUN npm test
 
-CMD npm run dev
+CMD npm run start

@@ -4,7 +4,7 @@
   "description": "API able to search for a recipe when given up to three different ingredients, with a gif attached to the response.",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon ./server.js",
+    "start": "nodemon ./server.js",
     "test": "mocha"
   },
   "repository": {

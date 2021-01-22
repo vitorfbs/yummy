@@ -1,6 +1,8 @@
 const handler = require('../handler/handler.js');
 const { getRecipePuppyRecipes } = require('../services/recipePuppyService.js');
 const { getRecipeGiphyURL } = require('../services/giphyService.js');
+const { TooManyIngredientsProvidedError } = require('../error/apiError.js');
+const { RecipePuppyEmptyRecipeListError } = require('../error/recipePuppyError.js');
 
 async function getRecipes(request, response) {
   try {
@@ -8,25 +10,34 @@ async function getRecipes(request, response) {
 
     const ingredients = i.split(',');
 
+    if (ingredients.length > 3) {
+      throw new TooManyIngredientsProvidedError();
+    }
+
     const recipes = await getRecipePuppyRecipes(ingredients);
 
-    const data = [];
+    if (recipes <= 0) {
+      throw new RecipePuppyEmptyRecipeListError();
+    }
+
+    const data = {};
+
     data.keywords = ingredients;
     data.recipes = [];
 
     await Promise.all(recipes.map(async (recipe) => {
-      const giphyURL = await await getRecipeGiphyURL(recipe.title);
+      const giphy = await await getRecipeGiphyURL(recipe.title);
       data.recipes.push({
         title: recipe.title.trim(),
         ingredients: recipe.ingredients.split(', ').sort(),
         link: recipe.href,
-        gif: giphyURL,
+        gif: giphy.data[0] ? giphy.data[0].url : '',
       });
     }));
 
     return handler.onRequestSuccess(response, data);
   } catch (error) {
-    return handler.onInternalServerError(response, 'The server was not able to process your request. Please try again later.');
+    return handler.onRequestError(response, error);
   }
 }
 

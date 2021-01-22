@@ -12,4 +12,4 @@ module.exports = ({ shape, path = 'query' }) => async (req, res, next) => {
   } catch (error) {
     return handler.onRequestError(res, error);
   }
-}
+};

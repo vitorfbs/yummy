@@ -1,10 +1,10 @@
+const { createServer } = require('http');
+
 const index = require('./app.js');
 
 require('dotenv').config();
 
-const { createServer } = require('http');
-
-const PORT = process.env.PORT || 6789;
+const PORT = process.env.PORT || 4567;
 
 const server = createServer(index);
 server.listen(PORT);

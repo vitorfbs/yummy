@@ -1,6 +1,6 @@
 const yup = require('yup');
 
-const handler = require('../handler/handler.js');
+const handler = require('../handlers/handler.js');
 
 module.exports = ({ shape, path = 'query' }) => async (req, res, next) => {
   const schema = yup.object().shape(shape);

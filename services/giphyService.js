@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
-const { GiphyApiFetchError } = require('../error/giphy/giphyApiFetchError.js');
-const { GiphyKeyInvalidError } = require('../error/giphy/giphyKeyInvalidError.js');
+const { GiphyApiFetchError } = require('../errors/giphy/giphyApiFetchError.js');
+const { GiphyKeyInvalidError } = require('../errors/giphy/giphyKeyInvalidError.js');
 
 const getRecipeGiphyURL = async (text) => {
   if (!process.env.GIPHY_API_KEY) {

@@ -14,4 +14,6 @@ USER node
 
 EXPOSE 4567
 
+RUN npm test
+
 CMD npm run dev

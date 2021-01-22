@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const { RecipePuppyApiError } = require('../errors/recipePuppyService/recipePuppyApiError.js');
+const { RecipePuppyApiError } = require('../errors/error.js');
 
 const getRecipePuppyRecipes = async (ingredients) => {
   try {

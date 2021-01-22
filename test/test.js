@@ -76,11 +76,11 @@ function recipeTests(host) {
   });
 
   describe('GET', () => {
-    it('should return an empty recipe list', (done) => {
+    it('should return a not found message', (done) => {
       chai.request(host)
         .get('/recipes/?i=nonexistent')
         .end((error, response) => {
-          response.should.have.status(400);
+          response.should.have.status(404);
           response.body.message.should.be.eql('The searched ingredients have retrieved no results. Please try with other ingredients.');
           done();
         });

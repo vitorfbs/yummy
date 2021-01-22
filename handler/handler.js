@@ -1,19 +1,14 @@
-const { OK, BAD_REQUEST, INTERNAL_SERVER_ERROR } = require('http-status');
+const { OK, BAD_REQUEST } = require('http-status');
 
-const onRequestSuccess = (response, message) => response.status(OK).json({
+const onRequestSuccess = (response, message, status = OK) => response.status(status).json({
   message,
 });
 
-const onRequestError = (response, { message }) => response.status(BAD_REQUEST).json({
-  message,
-});
-
-const onInternalServerError = (response, { message }) => response.status(INTERNAL_SERVER_ERROR).json({
+const onRequestError = (response, { message, status = BAD_REQUEST }) => response.status(status).json({
   message,
 });
 
 module.exports = {
   onRequestSuccess,
   onRequestError,
-  onInternalServerError,
 };
